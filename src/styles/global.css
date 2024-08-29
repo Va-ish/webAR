@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply cursor-default;
+}
+
+a,
+button {
+  @apply cursor-pointer;
+}
+
+input,
+textarea {
+  @apply cursor-text;
+}
+
+.app-container {
+  @apply container mx-auto px-4;
+}
+
+.hero-section {
+  @apply bg-primary-900 bg-cover bg-center;
+  background-image: url('/liquid.svg');
+}
+
+.btn-primary {
+  @apply bg-primary-100 text-primary-900 border-2 border-primary-100 border-solid text-lg font-semibold px-6 py-3 rounded-2xl;
+}
+
+.btn-secondary {
+  @apply text-primary-100 border-2 border-primary-100 border-solid text-lg font-semibold px-6 py-3 rounded-2xl;
+}
+
+
+.form-button {
+  @apply py-4 px-5 text-sm font-medium text-white border border-primary-600 rounded-full hover:bg-primary-700 active:bg-primary-700 focus:bg-primary-700 selection:bg-primary-700 peer-checked:bg-primary-100 peer-checked:text-primary-900 checked:bg-primary-700 transition-colors cursor-pointer;
+}
+
+.form-input {
+  @apply border-b-2 border-primary-600 bg-transparent text-primary-0 placeholder:text-primary-100 p-2 outline-primary-100;
+}

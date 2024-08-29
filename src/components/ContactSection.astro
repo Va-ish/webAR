@@ -1,0 +1,124 @@
+---
+
+---
+<section class="bg-black text-white">
+  <div class="app-container py-8 rounded-lg shadow-lg md:py-20">
+    <h2 class="text-white text-3xl mb-2">Let's Connect</h2>
+    <br />
+    <h4 class="text-primary-100 text-xl mb-6">
+      Interested in Web AR? Want to collaborate on a project? Let’s chat! I’m always excited to discuss new ideas and possibilities.
+    </h4>
+
+    <form id="contactForm" class="flex flex-col gap-6 py-9">
+      
+      <div class="flex flex-col md:flex-row gap-6">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name*"
+          class="form-input flex-1"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email*"
+          class="form-input flex-1"
+          required
+        />
+      </div>
+
+    
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject*"
+        class="form-input w-full"
+        required
+      />
+
+      
+      <textarea
+        name="message"
+        placeholder="Message*"
+        class="form-input w-full mt-4"
+        rows="6"
+        required
+      ></textarea>
+
+      
+      <!-- <div class="mb-6">
+        <p class="text-xl text-primary-100 pb-6">Budget (in INR)</p>
+        <div class="flex flex-wrap gap-4">
+          {
+            budgetOptions.map((option) => (
+              <label class="block my-3">
+                <input
+                  type="radio"
+                  name="budget"
+                  class="hidden peer"
+                  value={option}
+                />
+                <span class="form-button">{option}</span>
+              </label>
+            ))
+          }
+        </div>
+      </div> -->
+
+     
+      <!-- <button type="submit" class="text-lg group relative w-max">
+        <span class="px-1 relative uppercase font-bold text-4xl text-primary-100 z-10 group-hover:text-primary-900">
+          Discuss Project
+        </span>
+        <span class="absolute left-0 bottom-0 w-full h-0.5 transition-all bg-primary-100 z-0 group-hover:h-full"></span>
+      </button> -->
+
+      <button class="text-2xl group relative w-max">
+        <span class="absolute inset-0 w-full h-full transition duration-400 ease-out transform translate-x-1 translate-y-1 bg-primary-500 group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+        <span class="absolute inset-0 w-full h-full bg-white borer border-primary-500 group-hover:bg-indigo-50"></span>
+        <span class="relative text-primary-800 px-6 py-8">Submit</span>
+        </button>
+        
+    </form>
+    
+   
+    <div id="successPopup" class=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <p class="text-primary-700 text-lg">Form submitted successfully!</p>
+        <button
+          class="mt-4 px-4 py-2 bg-primary-700 text-white rounded"
+          onclick="document.getElementById('successPopup').classList.add('hidden')"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    formData.append('access_key', 'f2832a00-e257-4822-b8ad-cdbe025a4940'); // Add your Web3Forms access key
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Success:', result);
+      document.getElementById('successPopup').classList.remove('hidden');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    });
+  });
+</script> 
+
+<section />

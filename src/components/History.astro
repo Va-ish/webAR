@@ -1,0 +1,33 @@
+<!-- ---
+interface ServiceProps {
+  number: string
+  title: string
+  imageKey: string
+  services: string[]
+}
+
+const { number, title, services, imageKey } = Astro.props
+---
+
+<div class="flex flex-col md:flex-row gap-6 py-0 md:py-4 group">
+  <div class="hidden md:block text-primary-800">{number}</div>
+  <div class="w-1/6">
+    <img
+      class="hidden md:block w-full h-full object-cover rounded-xl saturate-0 opacity-30 group-hover:saturate-100 group-hover:opacity-100 transition-all group-hover:shadow-xl"
+      src={`/services/${imageKey}.jpg`}
+      alt=""
+    />
+  </div>
+  <div class="w-5/6">
+    <h3 class="text-primary-800 text-2xl font-medium pb-2 md:pb-4">{title}</h3>
+    <p
+      class="text-primary-600 text-sm flex flex-wrap gap-1 items-center"
+    >
+    <p class="text-primary-600 text-sm">
+      {services.join(' ')}
+    </p>
+    
+    
+    </p>
+  </div>
+</div> -->
